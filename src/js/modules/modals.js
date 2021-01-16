@@ -5,12 +5,12 @@ const modals = () => {
         const btnsOpenModal = document.querySelectorAll(btnOpenSelector);
         const btnCloseModal = document.querySelector(btnCloseSelector);
     
-        let timerShowModal = setTimeout(showModal, 4000);
+        // let timerShowModal = setTimeout(showModal, 4000);
     
         function showModal() {
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
-            clearTimeout(timerShowModal);
+            // clearTimeout(timerShowModal);
         }
     
         function hideModal() {
