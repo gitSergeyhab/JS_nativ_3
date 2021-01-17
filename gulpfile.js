@@ -6,7 +6,9 @@ const browsersync = require("browser-sync");
 
 // const dist = "./dist/";
 
-const dist = "G:/MAMP/htdocs/test";
+// const dist = "G:/MAMP/htdocs/test";
+const dist = "C:/MAMP/htdocs/test";
+
 
 gulp.task("copy-html", () => {
     return gulp.src("./src/index.html")
