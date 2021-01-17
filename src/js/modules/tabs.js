@@ -1,8 +1,8 @@
-const tabs = (contentSelector, tabSelector, activeClass) => {
+const tabs = (headerTabsSelector, contentSelector, tabSelector, activeClass) => {
 
+    const headerTabs = document.querySelector(headerTabsSelector);
     const tabContent = document.querySelectorAll(contentSelector);
     const tabs = document.querySelectorAll(tabSelector);
-    console.log( tabContent, tabs);
 
     const hideAllTabContents = () => {
         tabContent.forEach(cont => cont.style.display = 'none');
@@ -14,15 +14,19 @@ const tabs = (contentSelector, tabSelector, activeClass) => {
         tabs[index].classList.add(activeClass);
     }
 
-    tabs.forEach((tab, tab_i) => {
-        tab.addEventListener('click', () => {
-            hideAllTabContents();
-            tabContent.forEach((con, con_i) => {
-                if (tab_i == con_i) showOneTabContent(con_i);
-            })
-            
-        })
-    });
+    headerTabs.addEventListener('click', (evt) => {
+        if (evt.target && 
+            (evt.target.classList.contains(tabSelector.slice(1)) || 
+            evt.target.parentNode.classList.contains(tabSelector.slice(1)))) {
+                tabs.forEach((tab, i) => {
+                    if (evt.target == tab || evt.target.parentNode == tab) {
+                        hideAllTabContents();
+                        showOneTabContent(i);
+                    }
+                })
+        }
+    })
+
     
     hideAllTabContents();
     showOneTabContent();
