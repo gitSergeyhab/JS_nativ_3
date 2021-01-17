@@ -1,4 +1,4 @@
-const tabs2 = (contentSelector, tabSelector, activeClass) => {
+const tabs2 = (contentSelector, tabSelector, activeClass, display = 'block') => {
 
     const tabContent = document.querySelectorAll(contentSelector);
     const tabs = document.querySelectorAll(tabSelector);
@@ -10,7 +10,7 @@ const tabs2 = (contentSelector, tabSelector, activeClass) => {
     }
 
     const showOneTabContent = (index = 0) => {
-        tabContent[index].style.display = 'block';
+        tabContent[index].style.display = display;
         tabs[index].classList.add(activeClass);
     }
 
