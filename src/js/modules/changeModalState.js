@@ -1,11 +1,6 @@
 const changeModalState = (state) => {
-    console.log("!!!111");
 
     const windowForms = document.querySelectorAll('.balcon_icons_img');
-    const windowType = document.querySelector('#view_type');
-    // const cold = document.querySelector('#cold');
-    // const warm = document.querySelector('#warm');
-
     windowForms.forEach((form, i) => {
         form.addEventListener('click', () => {
             state['form'] = i;
@@ -21,33 +16,30 @@ const changeModalState = (state) => {
             console.log(state);
         });
     }
-
     heightAndWidth('#width');
     heightAndWidth('#height');
 
+    const windowType = document.querySelector('#view_type');
+    state['type'] = 'tree';
     windowType.addEventListener('change', () => {
         state['type'] = windowType.value;
         console.log(state);
     });
 
-    function temperature(selector) {
-        const element = document.querySelector(selector);
-        element.addEventListener('click', () => {
-            state['temperature'] = element.id;
+    const checkboxes = document.querySelectorAll('.checkbox');
+    checkboxes.forEach((box, i) => {
+        box.addEventListener('change', () => {
+            checkboxes.forEach(box1 => {
+                box1.checked = false;
+            });
+            box.checked = true;
+            const prof = ['cold', 'warm']
+
+            state['profile'] = prof[i];
             console.log(state);
         })
-    }
-
-    temperature('#cold');
-    temperature('#warm');
-
-    // temperature
-
-
-   
-
-    
-
+    })
+    console.log(Object.keys(state).length);
 
 }
 

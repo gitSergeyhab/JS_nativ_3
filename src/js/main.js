@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     let modalState = {};
     changeModalState(modalState);
-    modals();
+    modals(modalState);
     // tabs2('.glazing_content', '.glazing_block', 'active');
     // tabs2('.decoration_content > div > div', '.no_click', 'after_click');
     tabs('.glazing_slider', '.glazing_content', '.glazing_block', 'active');

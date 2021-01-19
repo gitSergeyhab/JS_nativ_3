@@ -1,5 +1,5 @@
-const modals = () => {
-    function bindModal(modalSelector, btnOpenSelector, btnCloseSelector, closeClickOverlay = true) {
+const modals = (state) => {
+    function bindModal(modalSelector, btnOpenSelector, btnCloseSelector, closeClickOverlay, goOn = [0, {}]) {
 
         const modal = document.querySelector(modalSelector);
         const btnsOpenModal = document.querySelectorAll(btnOpenSelector);
@@ -21,11 +21,14 @@ const modals = () => {
     
         btnsOpenModal.forEach(btn => {
             btn.addEventListener('click', (evt) => {
-                if (evt.target) {
-                    windows.forEach(wind => {
-                        wind.style.display = 'none';
-                    });
-                    showModal();
+                if (goOn[0] == Object.keys(goOn[1]).length) {
+                    console.log('open',goOn[0], Object.keys(goOn[1]).length);
+                    if (evt.target) {
+                        windows.forEach(wind => {
+                            wind.style.display = 'none';
+                        });
+                        showModal();
+                    }
                 }
             });
         });
@@ -49,11 +52,11 @@ const modals = () => {
         })
     }
 
-    bindModal('.popup_engineer', '.popup_engineer_btn', '.popup_engineer .popup_close');
-    bindModal('.popup', '.phone_link', '.popup .popup_close');
-    bindModal('.popup_calc', '.popup_calc_btn', '.popup_calc_close');
-    bindModal('.popup_calc_profile', '.popup_calc_button', '.popup_calc_profile_close', false);
-    bindModal('.popup_calc_end', '.popup_calc_profile_button', '.popup_calc_end_close', false);
+    bindModal('.popup_engineer', '.popup_engineer_btn', '.popup_engineer .popup_close', true);
+    bindModal('.popup', '.phone_link', '.popup .popup_close', true);
+    bindModal('.popup_calc', '.popup_calc_btn', '.popup_calc_close', true);
+    bindModal('.popup_calc_profile', '.popup_calc_button', '.popup_calc_profile_close', false, [4, state]);
+    bindModal('.popup_calc_end', '.popup_calc_profile_button', '.popup_calc_end_close', false, [5, state]);
 }
 
 export default modals
