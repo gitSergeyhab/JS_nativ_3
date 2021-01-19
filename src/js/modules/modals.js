@@ -21,8 +21,8 @@ const modals = (state) => {
     
         btnsOpenModal.forEach(btn => {
             btn.addEventListener('click', (evt) => {
+                // при открытии количество ключей объекта должно быть рвно первому значению goOn 
                 if (goOn[0] == Object.keys(goOn[1]).length) {
-                    console.log('open',goOn[0], Object.keys(goOn[1]).length);
                     if (evt.target) {
                         windows.forEach(wind => {
                             wind.style.display = 'none';

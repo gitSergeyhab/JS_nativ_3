@@ -18,5 +18,5 @@ window.addEventListener('DOMContentLoaded', () => {
     tabs('.glazing_slider', '.glazing_content', '.glazing_block', 'active');
     tabs('.decoration_slider', '.decoration_content > div > div', '.no_click', 'after_click');
     tabs('.balcon_icons', '.big_img > img', '.balcon_icons_img', 'do_image_more', 'inline-block');
-    forms();
+    forms(modalState);
 })

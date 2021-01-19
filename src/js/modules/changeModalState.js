@@ -4,7 +4,6 @@ const changeModalState = (state) => {
     windowForms.forEach((form, i) => {
         form.addEventListener('click', () => {
             state['form'] = i;
-            console.log(state);
         });
     });
     
@@ -13,7 +12,6 @@ const changeModalState = (state) => {
         element.addEventListener('input', () => {
             element.value = element.value.replace(/\D/, '');
             state[element.id] = element.value;
-            console.log(state);
         });
     }
     heightAndWidth('#width');
@@ -23,7 +21,6 @@ const changeModalState = (state) => {
     state['type'] = 'tree';
     windowType.addEventListener('change', () => {
         state['type'] = windowType.value;
-        console.log(state);
     });
 
     const checkboxes = document.querySelectorAll('.checkbox');
@@ -33,14 +30,11 @@ const changeModalState = (state) => {
                 box1.checked = false;
             });
             box.checked = true;
-            const prof = ['cold', 'warm']
 
+            const prof = ['cold', 'warm']
             state['profile'] = prof[i];
-            console.log(state);
         })
     })
-    console.log(Object.keys(state).length);
-
 }
 
 export default changeModalState;
