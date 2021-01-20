@@ -5,6 +5,7 @@ import tabs from './modules/tabs';
 import forms from './modules/forms';
 import changeModalState from './modules/changeModalState';
 import timer from './modules/timer'
+import showWorks from './modules/showWorks'
 
 
 
@@ -20,5 +21,6 @@ window.addEventListener('DOMContentLoaded', () => {
     tabs('.decoration_slider', '.decoration_content > div > div', '.no_click', 'after_click');
     tabs('.balcon_icons', '.big_img > img', '.balcon_icons_img', 'do_image_more', 'inline-block');
     forms(modalState);
-    timer('days', 'hours', 'minutes', 'seconds', '2021-04-01')
+    timer('days', 'hours', 'minutes', 'seconds', '2021-04-01');
+    showWorks();
 })
